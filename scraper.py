@@ -1,5 +1,4 @@
 import os
-
 import requests
 from bs4 import BeautifulSoup
 import telegram
@@ -10,7 +9,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-async def scrape_and_send(url, bot, chat_id, delay=15):
+async def scrape_and_send(url: str, bot: telegram.Bot,
+                          chat_id: str, delay=15):
     previous_results = set()
     while True:
         response = requests.get(url)
